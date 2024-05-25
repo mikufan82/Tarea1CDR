@@ -17,10 +17,12 @@ en este apartado configuramos las opciones, el campo "Conectado a:" debe ir en R
 
 Despues de hacer esto con ambas maquinas las iniciamos.
 
-#Iniciar Servidor
+Iniciar Servidor
+
 Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto ingresar el port deseado.
 
-#Iniciar Cliente
+Iniciar Cliente
+
 Para que el cliente pueda iniciar en un servidor debe dirigirse a la terminal y usar el comando: telnet (ip del servidor) (port).
 
 Como ejemplo nosotros en el servidor iniciamos en el puerto 5555, por tanto el cliente se debe conectar como 
