@@ -124,7 +124,7 @@ void JugarPartida(int socket_cliente, const char* cliente_ip) {
             int colT = MovimientoServidor();
             colD = colT;
             UbicarFicha(colD, turno);
-            cout << "Movimiento del servidor: columna " << colT << endl;
+            cout << "IP del cliente: " << cliente_ip << ", Movimiento del servidor: columna " << colT << endl;
         } else {
             turno = 'C';
             string mensaje = "\nTurno de " + string(1, turno) + ". Elija una columna (1-7): ";
@@ -141,12 +141,11 @@ void JugarPartida(int socket_cliente, const char* cliente_ip) {
             } else {
                 colD = colT;
                 UbicarFicha(colD, turno);
-                cout << "Movimiento del jugador " << turno << ": columna " << colT << endl;
+                cout << "IP del cliente: " << cliente_ip << ", Movimiento del jugador " << turno << ": columna " << colT << endl;
             }
         }
     }
 }
-
 
 // Limpia el tablero
 void LimpiarTablero() {
@@ -300,3 +299,4 @@ bool RevisarDiagonalInvertida(int i, int j, char t) {
     }
     return cont >= 4;
 }
+
