@@ -27,7 +27,7 @@ Despues de hacer esto con ambas maquinas las iniciamos.
 
 Iniciar Servidor
 
-Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto ingresar el port deseado.
+Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto en la terminal usar ./server (port) en el cual se puede terminar el uso con Ctrl + C
 
 Iniciar Cliente
 
