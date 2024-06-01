@@ -10,7 +10,7 @@
 using namespace std;
 
 // Funciones del juego
-void JugarPartida(int socket_cliente);
+void JugarPartida(int socket_cliente, const char* cliente_ip);
 void LimpiarTablero();
 void MostrarTablero(int socket_cliente);
 void UbicarFicha(int col, char turno);
@@ -88,10 +88,14 @@ int main(int argc, char **argv) {
             exit(EXIT_FAILURE);
         }
 
+        // Obteniendo la IP del cliente
+        char cliente_ip[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &direccionCliente.sin_addr, cliente_ip, INET_ADDRSTRLEN);
+
         if (fork() == 0) {
             // Proceso hijo para manejar al cliente
             close(socket_server);
-            JugarPartida(socket_cliente);
+            JugarPartida(socket_cliente, cliente_ip);
             close(socket_cliente);
             exit(0);
         } else {
@@ -99,20 +103,19 @@ int main(int argc, char **argv) {
             close(socket_cliente);
         }
     }
-
-    close(socket_server);
-    return 0;
 }
 
 // Inicia el juego con el cliente
-void JugarPartida(int socket_cliente) {
+void JugarPartida(int socket_cliente, const char* cliente_ip) {
     LimpiarTablero();
+    cout << "Nueva partida iniciada con el cliente IP: " << cliente_ip << endl;
 
     while (true) {
         MostrarTablero(socket_cliente);
         if (RevisarHorizontal(indD, colD, turno) || RevisarVertical(indD, colD, turno) || RevisarDiagonal(indD, colD, turno) || RevisarDiagonalInvertida(indD, colD, turno)) {
             string mensaje = "¡Gano el jugador " + string(1, turno) + "!\n";
             send(socket_cliente, mensaje.c_str(), mensaje.length(), 0);
+            cout << "Partida finalizada. El jugador " << turno << " ganó." << endl;
             break;
         }
 
@@ -121,6 +124,7 @@ void JugarPartida(int socket_cliente) {
             int colT = MovimientoServidor();
             colD = colT;
             UbicarFicha(colD, turno);
+            cout << "Movimiento del servidor: columna " << colT << endl;
         } else {
             turno = 'C';
             string mensaje = "\nTurno de " + string(1, turno) + ". Elija una columna (1-7): ";
@@ -137,10 +141,12 @@ void JugarPartida(int socket_cliente) {
             } else {
                 colD = colT;
                 UbicarFicha(colD, turno);
+                cout << "Movimiento del jugador " << turno << ": columna " << colT << endl;
             }
         }
     }
 }
+
 
 // Limpia el tablero
 void LimpiarTablero() {
@@ -263,7 +269,6 @@ bool RevisarDiagonal(int i, int j, char t) {
     return cont >= 4;
 }
 
-// Revisa si hay 4 en línea en la diagonal invertida
 // Revisa si hay 4 en línea en la diagonal invertida
 bool RevisarDiagonalInvertida(int i, int j, char t) {
     int cont = 1;
