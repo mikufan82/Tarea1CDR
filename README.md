@@ -2,9 +2,17 @@ Como usar
 
 Para hacer uso de este codigo en nuestro caso utilizamos maquinas virtuales, las imagenes para hacer las conexiones fueron las siguientes:
 
-https://drive.google.com/file/d/1rkiWB3C9L9zNrjqJPT64Jlzm57woq1gG/view?usp=drive_link
+https://drive.google.com/file/d/1dM2Exqbew0XuQmViBpn4dtXVrap_n7Se/view?usp=sharing
 
-https://drive.google.com/file/d/12LsVLYPZS8FOAzJzb5wJBpbW6LFB86rD/view?usp=drive_link
+Credenciales Cyberops 
+Usuario analyst
+Contraseña cyberops
+
+https://drive.google.com/file/d/1rrFSgwqERiEODpRGujBpECz95H8AzVxv/view?usp=sharing
+
+Credenciales kali linux
+Usuario kali
+Contraseña kali
 
 Estas imagenes se utilizaron para simular una red NAT configurada a traves de VirtualBox.
 
