@@ -27,14 +27,14 @@ Despues de hacer esto con ambas maquinas las iniciamos.
 
 Iniciar Servidor
 
-Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto en la terminal usar ./server (port) en el cual se puede terminar el uso con Ctrl + C
+Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto en la terminal usar ./servidor (port) en el cual se puede terminar el uso con Ctrl + C
 
 Iniciar Cliente
 
-Para que el cliente pueda iniciar en un servidor debe dirigirse a la terminal y usar el comando: telnet (ip del servidor) (port).
+Para que el cliente pueda iniciar en un servidor debe dirigirse a la terminal y usar el comando: ./cliente (ip del servidor) (port).
 
 Como ejemplo nosotros en el servidor iniciamos en el puerto 5555, por tanto el cliente se debe conectar como 
 
-telnet 10.0.2.15 5555
+./cliente 10.0.2.15 5555
 
 despues de este iniciamos el juego y se le pide al jugador ingresar columnas.
