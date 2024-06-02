@@ -1,24 +1,25 @@
-# Makefile
+# Variables
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+SERVER_SRC = servidor.cpp
+CLIENT_SRC = cliente.cpp
+SERVER_BIN = servidor
+CLIENT_BIN = cliente
 
-# Nombre del ejecutable
-TARGET = testS
+# Compilar ambos binarios
+all: $(SERVER_BIN) $(CLIENT_BIN)
 
-# Compilador
-CC = g++
+# Compilar el servidor
+$(SERVER_BIN): $(SERVER_SRC)
+	$(CXX) $(CXXFLAGS) -o $(SERVER_BIN) $(SERVER_SRC)
 
-# Flags de compilación
-CFLAGS = -std=c++11
+# Compilar el cliente
+$(CLIENT_BIN): $(CLIENT_SRC)
+	$(CXX) $(CXXFLAGS) -o $(CLIENT_BIN) $(CLIENT_SRC)
 
-# Fuente
-SRC = testS.cpp
-
-# Regla por defecto
-all: $(TARGET)
-
-# Regla para compilar el ejecutable
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
-
-# Regla para limpiar archivos generados
+# Limpiar binarios compilados
 clean:
-	rm -f $(TARGET)
+	rm -f $(SERVER_BIN) $(CLIENT_BIN)
+
+# Definir reglas para cada archivo fuente
+.PHONY: all clean
