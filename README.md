@@ -30,7 +30,7 @@ Iniciar Servidor
 Para este caso solo se debe compilar el Makefile que esta adjunto en el github. Luego de esto en la terminal usar ./servidor (port) en el cual se puede terminar el uso con Ctrl + C
 
 Iniciar Cliente
-
+Primero debe compilar el archivo cliente.cpp con el comando: g++ -o cliente cliente.cpp
 Para que el cliente pueda iniciar en un servidor debe dirigirse a la terminal y usar el comando: ./cliente (ip del servidor) (port).
 
 Como ejemplo nosotros en el servidor iniciamos en el puerto 5555, por tanto el cliente se debe conectar como 
