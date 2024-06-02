@@ -1,7 +1,7 @@
 # Variables
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
-SERVER_SRC = servidor.cpp
+SERVER_SRC = testS.cpp
 CLIENT_SRC = cliente.cpp
 SERVER_BIN = servidor
 CLIENT_BIN = cliente
